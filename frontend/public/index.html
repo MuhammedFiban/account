@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Account Opening Application</title>
+</head>
+<body>
+
+  <div class="container">
+    <div id="loginForm" class="card">
+      <h1 class="card-header text-center">Account Opening Application</h1>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+     
+<button type="button" class="btn btn-primary" onclick="login()" id="loginButton">Login</button>
+
+      </div>
+    </div>
+
+    <div id="csrDashboard" class="card" style="display: none">
+      <h1 class="card-header text-center">Csr Dashboard</h1>
+      <div class="card-body">
+        <button class="btn btn-primary" onclick="openNewAccount()">Open New Account</button>
+      
+      </div>
+    </div>
+
+    <div id="accountFormContainer" class="card" style="display: none">
+      <h1 class="card-header text-center">Application Form</h1>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Middle Name:</label>
+            <input type="text" class="form-control" id="lastName" required>
+          </div>
+        </div>
+
+          <div class="form-group">
+            <label for="middleName">Last Name:</label>
+            <input type="text" class="form-control" id="middleName">
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" class="form-control" id="dob" required>
+          </div>
+
+          <div>
+            <label for="idNumber">ID Number:</label>
+            <input type="text" id="idNumber" name="idNumber">
+            <span id="idNumberError" class="error"></span>
+          </div>
+          
+            <div class="form-group col-md-6">
+              <label for="nationality">Nationality:</label>
+              <select class="form-control" id="nationality" onchange="updateMobileValidation()" required>
+                <option value="" selected disabled>Select your nationality</option>
+                
+              </select>
+            </div>
+          </div>
+                 
+          <div>
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" id="mobileNumber" name="mobileNumber">
+            <span id="mobileNumberError" class="error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="addressLine1">Address Line 1:</label>
+            <input type="text" class="form-control" id="addressLine1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="addressLine2">Address Line 2:</label>
+            <input type="text" class="form-control" id="addressLine2">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="city">City:</label>
+              <input type="text" class="form-control" id="city">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="state">State:</label>
+              <input type="text" class="form-control" id="state" required>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="pinCode">Pin Code:</label>
+              <input type="text" class="form-control" id="pinCode" required pattern="[0-9]{6}" title="Enter a valid 6-digit pin code">
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+          <button class="btn btn-secondary" onclick="goBack()">Back to login</button>
+         
+        </form>
+      </div>
+      <div class="card-footer" id="result"></div>
+    </div>
+
+    <div id="branchManagerUI" style="display: none;">
+      <div id="viewApplicationForm" style="display: none;"></div>
+      <h2>Branch Manager Dashboard </h2>
+      <h2>View Application</h2>
+      <div id="applicationDetails" class="card">
+        <div class="card-body">
+      <ul id="applicationsList"></ul>
+      <div id="actionsContainer"></div>
+      <button class="btn btn-secondary" onclick="clearApplications()">Clear </button>
+      <button class="btn btn-secondary" onclick="goBack()">Back to login</button>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
