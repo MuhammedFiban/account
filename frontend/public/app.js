@@ -1,8 +1,9 @@
 // URL of the node application
-const apiUrl = 'http://localhost:3000';
+const apiUrl = 'http://localhost:8080';
 let loginData; // Declare loginData in a broader scope
 
 document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('loginButton').addEventListener('click', login)
   const nationalityDropdown = document.getElementById('nationality');
   const countries = getAllCountries();
   
@@ -21,7 +22,7 @@ function getAllCountries() {
 // This function is called on login().
 function login() {
   // Replace the hardcoded URL with a relative URL
-  var path = '/login';
+  var path = 'http://localhost:8080/login';
 
   loginData = {
     username: document.getElementById('username').value,
@@ -29,7 +30,7 @@ function login() {
   };
 
   // Send req to relative URL
-  fetch(path, {
+  fetch('http://localhost:8080', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -134,7 +135,7 @@ function login() {
       }
     
       //with form submission
-      fetch('/submit-application', {
+      fetch('http://localhost:8080/submit-application', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -193,7 +194,7 @@ function submitForm() {
   }
 
   // Send the application data to the server
-  fetch('/submit-application', {
+  fetch('http://localhost:8080/submit-application', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -258,7 +259,7 @@ function submitForm() {
   }
   
   function viewDetails(applicationId) {
-    const path = '/load-application-details';
+    const path = 'http://localhost:8080/load-application-details';
   
     // Send a request to the server to load application details
     fetch(apiUrl + path, {
