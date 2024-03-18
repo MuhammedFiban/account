@@ -30,7 +30,7 @@ function login() {
   };
 
   // Send req to relative URL
-  fetch('http://localhost:8080', {
+  fetch('http://localhost:8080/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -467,7 +467,3 @@ function goBack() {
   }, 500); // Adjust the delay to match the transition duration
 }
 
-
-
-
-  
